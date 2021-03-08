@@ -1,11 +1,38 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div id="app">
+    <div class="jumbotron">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6 offset-sm-3">
+            <div v-if="alert.message" :class="`alert ${alert.type}`">
+              {{ alert.message }}
+            </div>
+            <router-view></router-view>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <router-view/>
 </template>
-
+<script>
+export default {
+  name: "app",
+  data() {},
+  computed: {
+    alert() {
+      return this.$store.state.alert;
+    },
+  },
+  watch: {
+    $route(to, from) {
+      console.log(to);
+      console.log(from);
+      // clear alert on location change
+      this.$store.dispatch("alert/clear");
+    },
+  },
+};
+</script>
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
