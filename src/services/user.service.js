@@ -13,7 +13,7 @@ function login(username, password) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password })
     };
-//${config.apiUrl}
+//console.log(`${config.apiUrl}`);
     return fetch(`${process.env.BASE_URL}/users/authenticate`, requestOptions)
         .then(handleResponse)
         .then(user => {

@@ -17,16 +17,13 @@
 <script>
 export default {
   name: "app",
-  data() {},
   computed: {
     alert() {
       return this.$store.state.alert;
     },
   },
   watch: {
-    $route(to, from) {
-      console.log(to);
-      console.log(from);
+    $route() {
       // clear alert on location change
       this.$store.dispatch("alert/clear");
     },

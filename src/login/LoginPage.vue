@@ -1,9 +1,6 @@
 <template>
-  <div>
-    <div class="alert alert-info">
-      Username: test<br />
-      Password: test
-    </div>
+  <div class="container">
+    <div class="alert alert-info" v-if="isNeed"></div>
     <h2>Login</h2>
     <form @submit.prevent="handleSubmit">
       <div class="form-group">
@@ -50,6 +47,7 @@ export default {
       username: "",
       password: "",
       submitted: false,
+      isNeed: false,
     };
   },
   computed: {
@@ -62,8 +60,7 @@ export default {
     this.$store.dispatch("authentication/logout");
   },
   methods: {
-    handleSubmit(e) {
-      console.log(e);
+    handleSubmit() {
       this.submitted = true;
       const { username, password } = this;
       const { dispatch } = this.$store;

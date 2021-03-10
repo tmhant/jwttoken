@@ -1,0 +1,5 @@
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Data Source=.;User ID=sa;Password=!QAZ@WSX;Initial Catalog=member;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=True;Persist Security Info=True;"
+  }
+}
